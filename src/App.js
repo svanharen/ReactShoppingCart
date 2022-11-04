@@ -20,7 +20,11 @@ function App() {
 
     setTotal(total +1);
 
-    var newItem = {name: document.getElementById("product-form").value, quantity: 1}
+    var newItem = 
+    {
+      name: document.getElementById("product-form").value, 
+      quantity: 1
+    }
     console.log(newItem);
     const newCart = [ ...cart];
     var flag=0;
@@ -41,7 +45,7 @@ function App() {
           flag = 1;
         }
       })
-    if(flag !=1){
+    if(flag !== 1){
       newCart.push(newItem);
       setCart(newCart);
       flag=0;
@@ -49,23 +53,8 @@ function App() {
     }
   }
 
-
-  function changeToMulti(arr, product){
-
-   let idx = arr.indexOf(product);
-   arr[idx] = `${product} X2`
-  }
-
-  function addToCart(){
-    const pToAdd = document.getElementById("product-form").value;
-    console.log(pToAdd);
-    const updatedCart = [ ...cart];
-    updatedCart.includes(pToAdd) ? changeToMulti(updatedCart, pToAdd) : updatedCart.push(pToAdd);
-    setCart(updatedCart);
-  }
-
   function showCart(arr){
-    if(!arr || arr.length == 0) {
+    if(!arr || arr.length === 0) {
       return <p>Add some items</p>
     }
     else{
